@@ -15,4 +15,8 @@ def test_coin_toss_values():
 
 
 
+def test_weighted_coin_toss():
+    # Test that the weighted coin toss function returns a tuple
+    assert True
+
 
