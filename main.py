@@ -14,6 +14,16 @@ def coin_toss(n):
             tails += 1
     return heads, tails
 
+def weighted_coin_toss(n, p):
+    heads = 0
+    tails = 0
+    for i in range(n):
+        if np.random.rand() < p:
+            heads += 1
+        else:
+            tails += 1
+    return heads, tails
+
 
 
 def main():
@@ -21,7 +31,7 @@ def main():
     Plot the distribution of the coin tosses landing on heads or tails.
     '''
     n = 1000
-    tosses = coin_toss(n)
+    tosses = weighted_coin_toss(n)
     df = pd.DataFrame({'Heads': tosses[0], 'Tails': tosses[1]}, index=[0])
     df = df.melt()
     fig = px.bar(df, x='variable', y='value', color='variable')
